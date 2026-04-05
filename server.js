@@ -16,9 +16,10 @@ app.use(express.json());
 // Enable CORS
 app.use(cors());
 
-// --- ADD THESE TWO LINES ---
+// API Routes
 app.use('/api/users', require('./routes/authRoutes'));
 app.use('/api/records', require('./routes/recordRoutes'));
+app.use('/api/dashboard', require('./routes/dashboardRoutes')); // <-- Added dashboard route
 
 // Basic route to test server
 app.get('/', (req, res) => {
