@@ -24,8 +24,16 @@ To keep the application focused on correctness and maintainability, the followin
   * **Admin:** Full access. Can create, read, update, and delete financial records.
   * **Analyst:** Can read records and access the aggregated dashboard summary endpoints.
   * **Viewer:** Read-only access to standard records. Cannot access high-level dashboard summaries.
+- **AI Integration:** Used `gemini-1.5-flash` for low-latency financial insights generation.  
 * **Data Isolation:** For this initial scope, all users access a global pool of company financial records, regulated by their roles, rather than individual personal accounts. 
 * **User Status:** A default `isActive` flag is included in the User model to allow future soft-deletion or suspension of users without removing their historical data.
+
+## 🚀 Quick Testing (API Collection)
+To make testing easier, I have included a pre-configured API collection file:
+1. Locate `zorvyn_api_collection.json` in the root folder.
+2. Import this file into **Postman** or **Hoppscotch**.
+3. All endpoints, headers, and sample body data will be automatically set up for you.
+*Note: Please use a Desktop client (Postman/Hoppscotch Desktop) to avoid browser CORS issues with localhost.*
 
 ## 🛠️ Local Setup & Installation
 
@@ -51,7 +59,7 @@ NODE_ENV=development
 
 **4. Start the development server**
 \`\`\`bash
-npm run dev
+nodemon server.js
 \`\`\`
 The server will start on `http://localhost:5000`.
 
