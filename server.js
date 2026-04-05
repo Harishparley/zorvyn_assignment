@@ -20,6 +20,7 @@ app.use(cors());
 app.use('/api/users', require('./routes/authRoutes'));
 app.use('/api/records', require('./routes/recordRoutes'));
 app.use('/api/dashboard', require('./routes/dashboardRoutes')); // <-- Added dashboard route
+app.use('/api/ai', require('./routes/aiRoutes'));
 
 // Basic route to test server
 app.get('/', (req, res) => {
