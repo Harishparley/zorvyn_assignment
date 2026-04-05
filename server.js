@@ -16,12 +16,16 @@ app.use(express.json());
 // Enable CORS
 app.use(cors());
 
+// --- ADD THESE TWO LINES ---
+app.use('/api/users', require('./routes/authRoutes'));
+app.use('/api/records', require('./routes/recordRoutes'));
+
 // Basic route to test server
 app.get('/', (req, res) => {
   res.send('Zorvyn Finance API is running...');
 });
 
-// Global Error Handler (Basic)
+// Global Error Handler
 app.use((err, req, res, next) => {
   const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
   res.status(statusCode).json({
