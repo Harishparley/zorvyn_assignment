@@ -1,0 +1,88 @@
+{
+  "info": {
+    "name": "Zorvyn Finance Dashboard API",
+    "description": "API collection for the Zorvyn Backend Developer Intern assignment. Ready to import in Hoppscotch or Postman.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Authentication",
+      "item": [
+        {
+          "name": "Register Admin User",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Harish Admin\",\n  \"email\": \"admin@zorvyn.com\",\n  \"password\": \"password123\",\n  \"role\": \"Admin\"\n}"
+            },
+            "url": {"raw": "http://localhost:5000/api/users/register", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "users", "register"]}
+          }
+        },
+        {
+          "name": "Login User",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@zorvyn.com\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {"raw": "http://localhost:5000/api/users/login", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "users", "login"]}
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Financial Records",
+      "item": [
+        {
+          "name": "Create Income Record",
+          "request": {
+            "method": "POST",
+            "header": [
+              {"key": "Content-Type", "value": "application/json"},
+              {"key": "Authorization", "value": "Bearer YOUR_TOKEN_HERE"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 50000,\n  \"type\": \"income\",\n  \"category\": \"Salary\",\n  \"description\": \"April internship stipend from Zorvyn\"\n}"
+            },
+            "url": {"raw": "http://localhost:5000/api/records", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "records"]}
+          }
+        },
+        {
+          "name": "Create Expense Record",
+          "request": {
+            "method": "POST",
+            "header": [
+              {"key": "Content-Type", "value": "application/json"},
+              {"key": "Authorization", "value": "Bearer YOUR_TOKEN_HERE"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 5000,\n  \"type\": \"expense\",\n  \"category\": \"Food\",\n  \"description\": \"Late night coding snacks\"\n}"
+            },
+            "url": {"raw": "http://localhost:5000/api/records", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "records"]}
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Dashboard Analytics",
+      "item": [
+        {
+          "name": "Get Dashboard Summary",
+          "request": {
+            "method": "GET",
+            "header": [
+              {"key": "Authorization", "value": "Bearer YOUR_TOKEN_HERE"}
+            ],
+            "url": {"raw": "http://localhost:5000/api/dashboard/summary", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "dashboard", "summary"]}
+          }
+        }
+      ]
+    }
+  ]
+}
